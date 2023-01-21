@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace HTML_email_sender
@@ -29,6 +30,7 @@ namespace HTML_email_sender
             message.Body = bodyBuilderHTML.ToMessageBody();
 
             MailKit.Net.Smtp.SmtpClient smtp = new MailKit.Net.Smtp.SmtpClient();
+
             try
             {
                 smtp.Connect(this.smtp, this.port, false);
@@ -47,6 +49,15 @@ namespace HTML_email_sender
                 smtp.Dispose();
             }
 
+        }
+
+        public static Regex email_validation()
+        {
+            string pattern = @"^(?!\.)(""([^""\r\\]|\\[""\r\\])*""|"
+                + @"([-a-z0-9!#$%&'*+/=?^_`{|}~]|(?<!\.)\.)*)(?<!\.)"
+                + @"@[a-z0-9][\w\.-]*[a-z0-9]\.[a-z][a-z\.]*[a-z]$";
+
+            return new Regex(pattern, RegexOptions.IgnoreCase);
         }
     }
 }

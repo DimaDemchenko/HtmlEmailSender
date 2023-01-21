@@ -78,6 +78,7 @@
             this.textBoxPort.Name = "textBoxPort";
             this.textBoxPort.Size = new System.Drawing.Size(128, 23);
             this.textBoxPort.TabIndex = 2;
+            this.textBoxPort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPort_KeyPress);
             // 
             // label1
             // 
@@ -116,9 +117,9 @@
             this.labelSendFrom.AutoSize = true;
             this.labelSendFrom.Location = new System.Drawing.Point(146, 131);
             this.labelSendFrom.Name = "labelSendFrom";
-            this.labelSendFrom.Size = new System.Drawing.Size(61, 15);
+            this.labelSendFrom.Size = new System.Drawing.Size(91, 15);
             this.labelSendFrom.TabIndex = 11;
-            this.labelSendFrom.Text = "SendFrom";
+            this.labelSendFrom.Text = "SendFrom(Title)";
             // 
             // textBoxSendFrom
             // 
