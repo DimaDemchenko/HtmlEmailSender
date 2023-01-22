@@ -4,29 +4,18 @@ namespace HTML_email_sender
 {
     public partial class Form1 : Form
     {
-        Email email = new Email();
+        Email email;
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void textBoxSubject_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void buttonSend_Click_1(object sender, EventArgs e)
         {
             if (Validation())
             {
-                email.smtp = textBoxSMTP.Text;
-                email.port = int.Parse(textBoxPort.Text);
-                email.login = textBoxLogin.Text;
-                email.pass = textBoxPass.Text;
-                email.sendTo = textBoxSendTo.Text;
-                email.sendFrom = textBoxSendFrom.Text;
-                email.emailSubject = textBoxSubject.Text;
-                email.HTMLtext = richTextBoxHTML.Text;
+                email = new Email(textBoxSMTP.Text, int.Parse(textBoxPort.Text), textBoxLogin.Text, textBoxPass.Text, textBoxSendTo.Text, textBoxSendFrom.Text, textBoxSubject.Text, richTextBoxHTML.Text);
+               
                 email.SendMail();
             }
         }
@@ -83,6 +72,7 @@ namespace HTML_email_sender
                 MessageBox.Show("Login email is invalid");
                 return false;
             }
+
             return true;
         }
 
@@ -92,6 +82,11 @@ namespace HTML_email_sender
                 return;
             else
                 e.Handled = true;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

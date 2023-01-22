@@ -159,7 +159,6 @@
             this.textBoxSubject.Name = "textBoxSubject";
             this.textBoxSubject.Size = new System.Drawing.Size(262, 23);
             this.textBoxSubject.TabIndex = 12;
-            this.textBoxSubject.TextChanged += new System.EventHandler(this.textBoxSubject_TextChanged);
             // 
             // richTextBoxHTML
             // 
@@ -212,6 +211,7 @@
             this.Controls.Add(this.textBoxSMTP);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

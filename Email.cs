@@ -19,6 +19,17 @@ namespace HTML_email_sender
         public string emailSubject { get; set; }
         public string HTMLtext { get; set; }
 
+        public Email(string _smtp, int _port, string _login, string _pass, string _sendTo, string _sendFrom, string _emailSubject, string _HTML)
+        { 
+            this.smtp = _smtp;
+            this.port = _port;
+            this.login = _login;
+            this.pass = _pass;
+            this.sendTo = _sendTo;
+            this.sendFrom = _sendFrom;
+            this.emailSubject = _emailSubject;
+            this.HTMLtext = _HTML;
+        }
         public void SendMail()
         {
             MimeMessage message = new MimeMessage();
